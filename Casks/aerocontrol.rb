@@ -1,6 +1,6 @@
 cask "aerocontrol" do
-  version "0.1.0-Beta"
-  sha256 "0bee7a44479d45f1a3d0a6f863b9c8f77c82318915c1aec2159f10d7d287f967"
+  version "0.1.1"
+  sha256 "a76d8abd0ce584ab64f5d50cd523c825f1bae29de028e8ef4468e625179b868c"
 
   url "https://github.com/kim-raaschou/AeroControl/releases/download/v#{version}/AeroControl-v#{version}.zip"
   name "AeroControl"
