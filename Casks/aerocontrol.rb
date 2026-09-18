@@ -1,34 +1,41 @@
+# typed: strict
+# frozen_string_literal: true
+
 cask "aerocontrol" do
-  version "0.1.1"
-  sha256 "a76d8abd0ce584ab64f5d50cd523c825f1bae29de028e8ef4468e625179b868c"
+  version "0.2.0"
+  sha256 "4d3c9fb333248e8d4f3c3ea4c3b5f531e137eaeeb084cb7f30ea585698d5f562"
 
   url "https://github.com/kim-raaschou/AeroControl/releases/download/v#{version}/AeroControl-v#{version}.zip"
   name "AeroControl"
-  desc "Floating workspace overview for the AeroSpace tiling window manager"
+  desc "Mission Control-style workspace overview for the AeroSpace tiling window manager"
   homepage "https://github.com/kim-raaschou/AeroControl"
 
+  depends_on arch: :arm64
   # AeroControl requires macOS 26 (Tahoe) — it uses SwiftUI Liquid Glass.
   depends_on macos: :tahoe
 
   app "AeroControl-v#{version}/AeroControl.app"
 
-  # The app is ad-hoc signed (no Apple Developer notarization, mirroring
-  # AeroSpace), so strip the Gatekeeper quarantine on install.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/AeroControl.app"]
+  # Signed with a self-signed certificate and not notarized (mirroring AeroSpace), so
+  # strip the Gatekeeper quarantine on install. The certificate is the same for every
+  # release, which is what keeps the Screen Recording grant across upgrades.
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/AeroControl.app"], must_succeed: false
   end
+
+  # Quit the running agent before an upgrade replaces the bundle; otherwise the old
+  # process keeps running and the summon keybind toggles a stale build.
+  uninstall quit: "com.aerocontrol.AeroControl"
+
+  zap trash: "~/Library/Preferences/com.aerocontrol.AeroControl.plist"
 
   caveats <<~EOS
     AeroControl is a companion for AeroSpace and needs AeroSpace >= 0.21.1-Beta:
       brew install --cask nikitabobko/tap/aerospace
 
     Launch AeroControl.app once from Finder (Gatekeeper), then wire it into
-    ~/.aerospace.toml. No Accessibility or other permissions are required.
+    ~/.aerospace.toml. Window previews need Screen Recording (System Settings >
+    Privacy & Security); everything else works without any permission.
     See the README for details.
   EOS
-
-  zap trash: [
-    "~/Library/Preferences/com.aerocontrol.AeroControl.plist",
-  ]
 end
