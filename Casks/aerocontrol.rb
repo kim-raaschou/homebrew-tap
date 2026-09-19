@@ -2,8 +2,8 @@
 # frozen_string_literal: true
 
 cask "aerocontrol" do
-  version "0.2.0"
-  sha256 "4d3c9fb333248e8d4f3c3ea4c3b5f531e137eaeeb084cb7f30ea585698d5f562"
+  version "0.2.1"
+  sha256 "fc9a4267d5ddce527dc3eedbffff4b2c7e4d97d1d80afcdf4a7ac3e434d7c2c7"
 
   url "https://github.com/kim-raaschou/AeroControl/releases/download/v#{version}/AeroControl-v#{version}.zip"
   name "AeroControl"
@@ -30,12 +30,13 @@ cask "aerocontrol" do
   zap trash: "~/Library/Preferences/com.aerocontrol.AeroControl.plist"
 
   caveats <<~EOS
-    AeroControl is a companion for AeroSpace and needs AeroSpace >= 0.21.1-Beta:
+    AeroControl is a companion for AeroSpace and needs AeroSpace >= 0.21.0-Beta:
       brew install --cask nikitabobko/tap/aerospace
 
-    Launch AeroControl.app once from Finder (Gatekeeper), then wire it into
-    ~/.aerospace.toml. Window previews need Screen Recording (System Settings >
-    Privacy & Security); everything else works without any permission.
-    See the README for details.
+    Launch AeroControl.app once from Finder (Gatekeeper), then bind a key in your
+    aerospace.toml (~/.aerospace.toml or ~/.config/aerospace/aerospace.toml):
+      cmd-ctrl-alt-space = ['exec-and-forget open aerocontrol://workspaces']
+    Window previews need Screen Recording (System Settings > Privacy & Security);
+    everything else works without any permission. See the README for details.
   EOS
 end
