@@ -2,8 +2,8 @@
 # frozen_string_literal: true
 
 cask "aerocontrol" do
-  version "0.3.0"
-  sha256 "45dab14a0a302f51f7c2a68f80cf5664e5625101b2609c7b4ce8992012299082"
+  version "0.3.1-Beta"
+  sha256 "9ba38ccb45bedd662750aaffee475b91f4112c206d1e65790ddb85e5619ce16c"
 
   url "https://github.com/kim-raaschou/AeroControl/releases/download/v#{version}/AeroControl-v#{version}.zip"
   name "AeroControl"
