@@ -3,8 +3,8 @@
 
 # Made by `make cask` from Resources/mangochutney.rb.in in kim-raaschou/mangochutney.
 cask "mangochutney" do
-  version "0.0.1-20261103-beta"
-  sha256 "5a7231b749dc996090717ed64bfd4452786e40d345af88026bae4f68f288a6c5"
+  version "0.0.2-20261105-beta"
+  sha256 "82448acab62eb5dcba4bde7912d129d028e8d89f9f43e835c2df864ff94b1fd5"
 
   url "https://github.com/kim-raaschou/mangochutney/releases/download/v#{version}/MangoChutney-#{version}.zip"
   name "Mango Chutney"
@@ -41,5 +41,9 @@ cask "mangochutney" do
     To start it at login (and again after an upgrade):
       mmsg service install
     Stop AeroSpace, yabai or any other tiling window manager first.
+
+    Remember two keys: Hyper K lists every key, Hyper L picks a layout.
+    Hyper is the key you choose on the first start, as Raycast's Hyper Key (Caps Lock, …).
+    Getting Started: https://github.com/kim-raaschou/mangochutney/blob/main/docs/guide.md#getting-started
   EOS
 end
