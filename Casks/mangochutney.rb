@@ -3,8 +3,8 @@
 
 # Made by `make cask` from Resources/mangochutney.rb.in in kim-raaschou/mangochutney.
 cask "mangochutney" do
-  version "0.0.2-20261105-beta"
-  sha256 "82448acab62eb5dcba4bde7912d129d028e8d89f9f43e835c2df864ff94b1fd5"
+  version "0.0.3-20261105-beta"
+  sha256 "de0f1deeb9fa285c8696bc610688a9712692ba36654f7f513f8af4ad32a59959"
 
   url "https://github.com/kim-raaschou/mangochutney/releases/download/v#{version}/MangoChutney-#{version}.zip"
   name "Mango Chutney"
