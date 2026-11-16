@@ -15,3 +15,11 @@ Homebrew casks by kim-raaschou.
   ```sh
   brew install --cask kim-raaschou/tap/aerocontrol
   ```
+
+- [Shan Shui](https://github.com/kim-raaschou/shanshui-macos): an endless Chinese landscape
+  scroll as a desktop background and screen saver, a port of
+  [omarchy-shanshui](https://github.com/zednaked/omarchy-shanshui).
+
+  ```sh
+  brew install --cask kim-raaschou/tap/shanshui
+  ```
