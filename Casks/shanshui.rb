@@ -3,8 +3,8 @@
 
 # Made by `make cask` from Resources/shanshui.rb.in in kim-raaschou/shanshui-macos.
 cask "shanshui" do
-  version "0.2.0"
-  sha256 "2ea58d49a77350f5d72124e5a904a8c2741dd4ae50f29daa8abe8fe39acf6188"
+  version "0.3.0"
+  sha256 "27436846a5c925d344206a5aa8fe8422f645a72c163a8ecda004533d1f4df420"
 
   url "https://github.com/kim-raaschou/shanshui-macos/releases/download/v#{version}/ShanShui-#{version}.zip"
   name "Shan Shui"
